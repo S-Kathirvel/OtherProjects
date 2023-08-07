@@ -1,0 +1,175 @@
+/* Global Styles */
+body {
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif;
+background-color: #000;
+overflow: hidden;
+position: relative;
+}
+
+header {
+background-color: rgba(13, 37, 63, 0);
+color: #89f406;
+padding: 20px;
+position: relative ; /* Ensure header stays above images */
+z-index: 2;
+left: 200px; /* Bring header to the top */
+}
+
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+position: relative;
+}
+
+/* Chat Window Styles */
+.chat-window {
+width: 500px;
+background-color: rgba(255, 255, 255, 0.1);
+border-radius: 8px;
+overflow: hidden;
+position: relative;
+z-index: 1;
+}
+
+.chat-area {
+height: 400px;
+overflow-y: scroll;
+padding: 20px;
+}
+
+.chat-messages {
+display: flex;
+flex-direction: column;
+}
+
+.message {
+margin-bottom: 10px;
+background-color: #595a5c18;
+padding: 10px;
+border-radius: 4px;
+color: #ffffff;
+font-weight: bold;
+}
+
+.user-input {
+display: flex;
+align-items: center;
+padding: 20px;
+background-color: rgba(13, 37, 63, 0);
+border-radius: 0 0 8px 8px;
+}
+
+#message-input {
+flex-grow: 1;
+padding: 8px;
+background-color: #000;
+border: 1px solid rgba(13, 37, 63, 0);
+border-radius: 4px;
+}
+
+#send-button {
+padding: 8px 16px;
+margin-left: 10px;
+background-color: #3f0d24;
+border: none;
+border-radius: 4px;
+color: #fffffff9;
+cursor: pointer;
+}
+
+#send-button:hover {
+background-color: #ae165d;
+}
+
+/* Clear Chat Button */
+.clear-button {
+display: flex;
+justify-content: center;
+padding: 10px;
+position: relative;
+z-index: 1;
+}
+
+#clear-button {
+padding: 8px 16px;
+background-color: #3f0d24;
+border: none;
+border-radius: 4px;
+color: #fff;
+cursor: pointer;
+position: relative;
+overflow: hidden;
+}
+
+#clear-button:hover {
+background-color: #ae165d;
+}
+
+/* Animation for the spiral motion effect */
+#clear-button:before {
+content: "";
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+background: radial-gradient(circle at center, transparent 0, transparent 40%, black 90%);
+transform: translate(-50%, -50%);
+animation: spiral 1.5s ease-out forwards;
+opacity: 0;
+border-radius: 50%;
+}
+
+@keyframes spiral {
+to {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(720deg);
+}
+}
+
+/* Background Images */
+.background-image {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover; /* Maintain image aspect ratio */
+}
+
+#stars {
+z-index: -1; /* Send stars image to the background */
+}
+
+#moon {
+z-index: 0;
+top: -40px;
+ /* Bring moon image behind the chat window */
+transform: scaleY(1); /* Stretch moon vertically */
+}
+
+#mountains_behind,
+#mountains_front {
+z-index: -1; /* Send mountain images to the background */
+}
+
+/* Scroll Bar Styles */
+.chat-area::-webkit-scrollbar {
+    width: 10px; /* Adjust the width of the scrollbar */
+  }
+  
+  .chat-area::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5); /* Translucent white color for thumb */
+    border-radius: 10px;
+  }
+  
+  .chat-area::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.45); /* Translucent black color for track */
+  }
+  
